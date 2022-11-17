@@ -1,7 +1,11 @@
 
 <script>
+import ScCard from './ScCard.vue';
 export default {
     name:'AppMain',
+    components:{
+        ScCard,
+    }
 }
 </script>
 
@@ -26,10 +30,17 @@ export default {
                                     <p>found</p>
                                 </div>
                             </div>
-                            <div class="row card-wrapper">
-                                <div class="col">
-                                    card
-                                </div>
+                            <div class="row card-wrapper justify-content-start flex-wrap">
+                                <ScCard/>
+                                <ScCard/>
+                                <ScCard/>
+                                <ScCard/>
+                                <ScCard/>
+                                <ScCard/>
+                                <ScCard/>
+                                <ScCard/>
+                                <ScCard/>
+                                <ScCard/>
                             </div>
                         </div>
                     </div>
