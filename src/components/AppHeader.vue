@@ -6,7 +6,7 @@ export default {
 </script>
 
 <template>
-  <div class="row">
+  <div class="row mb-5">
     <div class="col-1 logo">
         <img src="/Breaking_Bad_logo.svg" alt="Breaking Bad">
     </div>
