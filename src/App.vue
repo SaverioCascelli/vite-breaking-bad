@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <AppHeader/>
     <AppMain/>
   </div>
@@ -21,5 +21,5 @@ export default {
 
 
 <style lang="scss">
-  @use './styles/general.scss' as *;
+    @use './styles/general.scss' as *;
 </style>
