@@ -15,11 +15,14 @@ export default {
 
     <div class="row mb-5">
         <div class="col-2">
-            <select class="form-select" aria-label="Default select example">
-                <option value="2">Breaking bad</option>
-                <option value="3">Better </option>
+            <select v-model="store.selectedSerie" class="form-select">
+                <option selected value="">Seleziona una serie</option>
+                <option value="breaking bad">Breaking bad</option>
+                <option value="better call saul">Better Call Soul </option>
             </select>
-                    
+        </div>
+        <div class="col-1">
+            <button  @click="$emit('searchFilter')" type="button" class="btn btn-light">Cerca</button>
         </div>
     </div>
   

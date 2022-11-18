@@ -20,8 +20,13 @@ export default {
     },
     methods:{
       getApi(){
+        store.bbCharacters= [];
         store.isApiDone= false;
-        axios.get(store.breakingBadURL)
+        axios.get(store.breakingBadURL,{
+          params:{
+            category: store.selectedSerie,
+          }
+        })
         .then( result => {
           store.bbCharacters = result.data;
           console.log(store.bbCharacters.length);
@@ -31,6 +36,10 @@ export default {
         .catch( error =>{
           console.log(error);
         })
+      },
+      searchFilter(){
+        console.log('we');
+        this.getApi();
       }
     },
     mounted(){
@@ -51,8 +60,7 @@ export default {
       <div class="row">
         <div class="col">
           <div class="container">
-
-            <AppSearch/>
+            <AppSearch @searchFilter="searchFilter"/>
             <AppMain/>
           </div>
         </div>
