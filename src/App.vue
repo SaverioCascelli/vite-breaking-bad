@@ -4,6 +4,7 @@ import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import {store} from './data/store.js';
 import axios from 'axios';
+import AppSearch from './components/AppSearch.vue';
 
 export default {
   name:'App',
@@ -13,11 +14,13 @@ export default {
     }
   },
   components:{
+      AppSearch,
       AppHeader,
       AppMain,
     },
     methods:{
       getApi(){
+        store.isApiDone= false;
         axios.get(store.breakingBadURL)
         .then( result => {
           store.bbCharacters = result.data;
@@ -37,11 +40,23 @@ export default {
 </script>
 
 <template>
+
   <div class="container-fluid">
-    <AppHeader/>
+    <div class="row mb-5">
+
+      <AppHeader/>
+    </div>
 
     <main>
-       <AppMain/>
+      <div class="row">
+        <div class="col">
+          <div class="container">
+
+            <AppSearch/>
+            <AppMain/>
+          </div>
+        </div>
+      </div>
    </main>
   </div>
 </template>
