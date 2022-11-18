@@ -1,7 +1,13 @@
 
 <script>
+import{store} from '../data/store'
 export default {
     name: 'AppHeader',
+    data(){
+        return{
+            store,
+        }
+    }
 }
 </script>
 
@@ -10,7 +16,7 @@ export default {
     <div class="col-1 logo">
         <img src="/Breaking_Bad_logo.svg" alt="Breaking Bad">
     </div>
-    <div class="col-2">
+    <div class="col">
         <h1>Breaking Bad Api</h1>
     </div>
   </div>

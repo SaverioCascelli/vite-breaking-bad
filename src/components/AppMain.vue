@@ -1,8 +1,19 @@
 
 <script>
-import ScCard from './ScCard.vue';
+import ScCard from './ScCard.vue'                                
+import {store} from '../data/store';
 export default {
     name:'AppMain',
+    data(){
+        return{
+            store,
+        }
+    },
+    methods:{
+        logIt(){
+            console.log(store.isApiDone);
+        }
+    },
     components:{
         ScCard,
     }
@@ -18,8 +29,9 @@ export default {
                     <div class="col-2">
                         <select class="form-select" aria-label="Default select example">
                                 <option value="2">Breaking bad</option>
-                                <option value="3">Three</option>
+                                <option value="3">Better </option>
                         </select>
+                    
                     </div>
                 </div>
                 <div class="row">
@@ -27,20 +39,22 @@ export default {
                         <div class="container-fluid">
                             <div class="row found-wrapper mx-auto py-3">
                                 <div class="col founded d-flex align-content-center">
-                                    <p>found</p>
+                                    <p>found {{store.bbCharacters.length}} characters</p>
                                 </div>
                             </div>
-                            <div class="row card-wrapper justify-content-start flex-wrap">
-                                <ScCard/>
-                                <ScCard/>
-                                <ScCard/>
-                                <ScCard/>
-                                <ScCard/>
-                                <ScCard/>
-                                <ScCard/>
-                                <ScCard/>
-                                <ScCard/>
-                                <ScCard/>
+                            <div class="row card-wrapper flex-wrap"
+                            v-if="store.isApiDone">
+                                <ScCard
+                                v-for="char in store.bbCharacters" :key="char.char_id"
+                                :name="char.name"
+                                :deadOrAlive="char.status"
+                                :charImgUrl="char.img"/>
+                            </div>
+                            <div class="row"
+                            v-else>
+                                <div class="col">
+                                    <p>loading...</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,9 +81,8 @@ export default {
         }
 
         .card-wrapper{
-            width: 80%;
+            width: 100%;
             margin: 0 auto;
-            background: green;
         }
     }
 

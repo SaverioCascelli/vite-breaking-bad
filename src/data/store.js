@@ -1,8 +1,8 @@
-import { reactive } from 'Vue'
+import { reactive } from 'vue';
 
 export const store = reactive({
 
-    objArr: [],
-
-
-})
+    breakingBadURL: 'https://www.breakingbadapi.com/api/characters',
+    bbCharacters: [],
+    isApiDone: true,
+});

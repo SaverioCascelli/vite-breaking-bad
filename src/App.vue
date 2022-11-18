@@ -2,22 +2,30 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
-import {store} from './data/store'
+import {store} from './data/store.js';
 import axios from 'axios';
 
 export default {
   name:'App',
+  data(){
+    return{
+      store,
+    }
+  },
   components:{
       AppHeader,
       AppMain,
     },
     methods:{
       getApi(){
-        axios.get('https://www.breakingbadapi.com/api/characters')
-        .then(result => {
-          console.log(result.data);
+        axios.get(store.breakingBadURL)
+        .then( result => {
+          store.bbCharacters = result.data;
+          console.log(store.bbCharacters.length);
+          console.log(store.bbCharacters);
+          store.isApiDone = true;
         })
-        .catch(error =>{
+        .catch( error =>{
           console.log(error);
         })
       }
@@ -31,7 +39,10 @@ export default {
 <template>
   <div class="container-fluid">
     <AppHeader/>
-    <AppMain/>
+
+    <main>
+       <AppMain/>
+   </main>
   </div>
 </template>
 
