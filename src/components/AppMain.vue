@@ -9,9 +9,9 @@ export default {
             store,
         }
     },
-    methods:{
-        logIt(){
-            console.log(store.isApiDone);
+    computed:{
+        getCharNumb(){
+            return this.store.bbCharacters.length
         }
     },
     components:{
@@ -28,7 +28,7 @@ export default {
                         <div class="container-fluid bg-white">
                             <div class="row found-wrapper mx-auto py-3">
                                 <div class="col founded d-flex align-content-center">
-                                    <p>found {{store.bbCharacters.length}} characters</p>
+                                    <p>found {{getCharNumb}} characters</p>
                                 </div>
                             </div>
                             <div class="row card-wrapper flex-wrap"

@@ -29,8 +29,6 @@ export default {
         })
         .then( result => {
           store.bbCharacters = result.data;
-          console.log(store.bbCharacters.length);
-          console.log(store.bbCharacters);
           store.isApiDone = true;
         })
         .catch( error =>{
@@ -38,7 +36,6 @@ export default {
         })
       },
       searchFilter(){
-        console.log('we');
         this.getApi();
       }
     },
@@ -60,7 +57,7 @@ export default {
       <div class="row">
         <div class="col">
           <div class="container">
-            <AppSearch @searchFilter="searchFilter"/>
+            <AppSearch @performSearch="searchFilter"/>
             <AppMain/>
           </div>
         </div>

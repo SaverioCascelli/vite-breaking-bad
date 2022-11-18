@@ -22,7 +22,7 @@ export default {
             </select>
         </div>
         <div class="col-1">
-            <button  @click="$emit('searchFilter')" type="button" class="btn btn-light">Cerca</button>
+            <button  @click="$emit('performSearch')" type="button" class="btn btn-light">Cerca</button>
         </div>
     </div>
   
